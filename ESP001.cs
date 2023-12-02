@@ -77,8 +77,8 @@ namespace TurboPrintDocument
             {
                 row.Cells[1].Value = "ENVIANDO A IMPRIMIR...";
                 row.Cells[1].Style.BackColor = Color.Orange;
-                SendToPrint((row.Cells[0].Value.ToString()));
-                row.Cells[1].Value = "EMVIADO A IMPRIMIR";
+                await SendToPrint((row.Cells[0].Value.ToString()));
+                row.Cells[1].Value = "ENVIADO A IMPRIMIR";
                 row.Cells[1].Style.BackColor = Color.Green;
                 row.Cells[1].Style.ForeColor = Color.White;
             }
@@ -86,7 +86,7 @@ namespace TurboPrintDocument
             MessageBox.Show("Todos los documentos fueron enviados a imprimir", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private async void SendToPrint(string filePath)
+        private async Task SendToPrint(string filePath)
         {
             PdfDocument doc = new PdfDocument();
             doc.LoadFromFile(filePath);
