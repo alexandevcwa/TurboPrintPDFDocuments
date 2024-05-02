@@ -1,6 +1,7 @@
 ﻿using Spire.Pdf;
 using System;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Management;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -56,9 +57,18 @@ namespace TurboPrintDocument
 
         private void ESP001_Load(object sender, EventArgs e)
         {
+            LoadPrinters();
+        }
+
+        private void LoadPrinters() 
+        {
+            comboBox_Printers.Items.Clear();
             foreach (string printerName in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
             {
-                if (PrinterStatus(printerName))
+                PrinterSettings printerSettings = new PrinterSettings();
+                printerSettings.PrinterName = printerName;
+
+                if (printerSettings.IsValid)
                 {
                     comboBox_Printers.Items.Add(printerName);
                 }
@@ -68,7 +78,6 @@ namespace TurboPrintDocument
                 }
             }
             comboBox_Printers.SelectedIndex = 0;
-
         }
 
         private async void PrintPDF(string printer)
@@ -179,18 +188,23 @@ namespace TurboPrintDocument
             }
         }
 
-        private void button_PrintOnlyOne_Click(object sender, EventArgs e)
+        private async void button_PrintOnlyOne_Click(object sender, EventArgs e)
         {
             try
             {
                 string filePath = dataGridView_Documents.CurrentRow.Cells[0].Value.ToString();
-                SendToPrint(filePath);
+                await SendToPrint(filePath);
             }
             catch (NullReferenceException)
             {
                 toolStripStatusLabel_StatusApp.Text = "No existen documentos cargados en tabla para imprimir";
             }
             
+        }
+
+        private void button_ActualizarImpresoras_Click(object sender, EventArgs e)
+        {
+            LoadPrinters();
         }
     }
 }

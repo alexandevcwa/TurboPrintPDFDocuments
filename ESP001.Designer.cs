@@ -45,6 +45,7 @@ namespace TurboPrintDocument
             this.toolStripStatusLabel_StatusApp = new System.Windows.Forms.ToolStripStatusLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.previewControl_PdfDocument = new System.Windows.Forms.PrintPreviewControl();
+            this.button_ActualizarImpresoras = new System.Windows.Forms.Button();
             this.button_PrintOnlyOne = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_CleanTable = new System.Windows.Forms.Button();
@@ -144,9 +145,9 @@ namespace TurboPrintDocument
             this.label1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 20);
+            this.label1.Size = new System.Drawing.Size(99, 20);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Selecionar Impresora";
+            this.label1.Text = "Impresoras";
             // 
             // statusStrip1
             // 
@@ -188,6 +189,23 @@ namespace TurboPrintDocument
             this.previewControl_PdfDocument.Size = new System.Drawing.Size(434, 552);
             this.previewControl_PdfDocument.TabIndex = 11;
             this.previewControl_PdfDocument.Zoom = 0.95D;
+            // 
+            // button_ActualizarImpresoras
+            // 
+            this.button_ActualizarImpresoras.BackColor = System.Drawing.SystemColors.Control;
+            this.button_ActualizarImpresoras.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.button_ActualizarImpresoras.FlatAppearance.BorderSize = 2;
+            this.button_ActualizarImpresoras.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ActualizarImpresoras.Image = global::TurboPrintDocument.Properties.Resources.icons8_refresh_30;
+            this.button_ActualizarImpresoras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ActualizarImpresoras.Location = new System.Drawing.Point(223, 62);
+            this.button_ActualizarImpresoras.Name = "button_ActualizarImpresoras";
+            this.button_ActualizarImpresoras.Size = new System.Drawing.Size(157, 44);
+            this.button_ActualizarImpresoras.TabIndex = 13;
+            this.button_ActualizarImpresoras.Text = "Actualizar\r\nImpresoras";
+            this.button_ActualizarImpresoras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button_ActualizarImpresoras.UseVisualStyleBackColor = false;
+            this.button_ActualizarImpresoras.Click += new System.EventHandler(this.button_ActualizarImpresoras_Click);
             // 
             // button_PrintOnlyOne
             // 
@@ -274,6 +292,7 @@ namespace TurboPrintDocument
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1365, 727);
+            this.Controls.Add(this.button_ActualizarImpresoras);
             this.Controls.Add(this.button_PrintOnlyOne);
             this.Controls.Add(this.previewControl_PdfDocument);
             this.Controls.Add(this.pictureBox1);
@@ -316,6 +335,7 @@ namespace TurboPrintDocument
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.PrintPreviewControl previewControl_PdfDocument;
         private System.Windows.Forms.Button button_PrintOnlyOne;
+        private System.Windows.Forms.Button button_ActualizarImpresoras;
     }
 }
 
